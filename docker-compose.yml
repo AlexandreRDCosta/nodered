@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  nodered:
+    build: .
+    image: nodered
+    container_name: nodered
+    volumes:
+      - nodered-volume:/data
+    ports:
+      - 80:1880
+    networks:
+      - nodered
+    restart: on-failure
+
+volumes:
+  nodered-volume: {}
+networks:
+  nodered:
+    driver: bridge
